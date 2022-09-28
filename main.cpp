@@ -5,9 +5,9 @@ int main(int argc, char** argv)
 {
     const int grid[SIZE][SIZE] =
     {
-        { PLAYER2, EMPTY, EMPTY },
-        { EMPTY, PLAYER2, EMPTY },
-        { PLAYER2, EMPTY, PLAYER2 },
+        { EMPTY, EMPTY, PLAYER1 },
+        { EMPTY, PLAYER1, EMPTY },
+        { PLAYER1, EMPTY, PLAYER1 },
     };
 
     int winner = getWinner(grid);
@@ -30,26 +30,43 @@ int main(int argc, char** argv)
 int getWinner(const int grid[][SIZE])
 {
     int winner = EMPTY;
+    int i = 0;
 
-    // Check horizontal & vertical lines.
-    for (int l = 0; l < SIZE; ++l)
+    while (!winner && i < SIZE)
     {
-        winner = checkLine(grid, {0,l}, {1,l}, {2,l}) == PLAYER1 ? PLAYER1 :
-                 checkLine(grid, {l,0}, {l,1}, {l,2}) == PLAYER1 ? PLAYER1 :
-                 checkLine(grid, {0,l}, {1,l}, {2,l}) == PLAYER2 ? PLAYER2 : 
-                 checkLine(grid, {l,0}, {l,1}, {l,2}) == PLAYER2 ? PLAYER2 : false;
-        
-        if (winner)
-            return winner;
+        int lineV = checkLine(grid, {0,i}, {1,i}, {2,i});
+        int lineH = checkLine(grid, {i,0}, {i,1}, {i,2});
+        int lineD = checkLine(grid, {0,0}, {1,1}, {2,2}) | checkLine(grid, {2,0}, {1,1}, {0,2});
+
+        int potentialWinner = lineV | lineH | lineD;
+
+        if (potentialWinner != EMPTY)
+            return potentialWinner;
+
+        i++;
     }
 
-    // Check diagonal lines.
-    winner =  checkLine(grid, {0,0}, {1,1}, {2,2}) == PLAYER1 ? PLAYER1 :
-              checkLine(grid, {0,2}, {1,1}, {2,0}) == PLAYER1 ? PLAYER1 :
-              checkLine(grid, {0,0}, {1,1}, {2,2}) == PLAYER2 ? PLAYER2 :
-              checkLine(grid, {0,2}, {1,1}, {2,0}) == PLAYER2 ? PLAYER2 : false;
-    
     return winner;
+
+    // Check horizontal & vertical lines.
+    // for (int l = 0; l < SIZE; ++l)
+    // {
+    //     winner = checkLine(grid, {0,l}, {1,l}, {2,l}) == PLAYER1 ? PLAYER1 :
+    //              checkLine(grid, {l,0}, {l,1}, {l,2}) == PLAYER1 ? PLAYER1 :
+    //              checkLine(grid, {0,l}, {1,l}, {2,l}) == PLAYER2 ? PLAYER2 : 
+    //              checkLine(grid, {l,0}, {l,1}, {l,2}) == PLAYER2 ? PLAYER2 : false;
+        
+    //     if (winner)
+    //         return winner;
+    // }
+
+    // // Check diagonal lines.
+    // winner =  checkLine(grid, {0,0}, {1,1}, {2,2}) == PLAYER1 ? PLAYER1 :
+    //           checkLine(grid, {0,2}, {1,1}, {2,0}) == PLAYER1 ? PLAYER1 :
+    //           checkLine(grid, {0,0}, {1,1}, {2,2}) == PLAYER2 ? PLAYER2 :
+    //           checkLine(grid, {0,2}, {1,1}, {2,0}) == PLAYER2 ? PLAYER2 : false;
+    
+    // return winner;
 }
 
 
