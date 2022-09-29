@@ -61,7 +61,7 @@ int checkLine(const int grid[][SIZE], const vector2 & pos1, const vector2 & pos2
     return grid[pos1.x][pos1.y] & grid[pos2.x][pos2.y] & grid[pos3.x][pos3.y];
 }
 
-const char* getPlayerName(int playerIndex)
+string getPlayerName(int playerIndex)
 {
     return (playerIndex == PLAYER1 ? "Player 1" : (playerIndex == PLAYER2 ? "Player 2" : "-"));
 }
