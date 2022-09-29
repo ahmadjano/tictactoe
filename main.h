@@ -1,3 +1,8 @@
+/*
+ *  HEIG-VD
+ *  Projet TicTacToe - PRG1
+ *  29.09.2022
+*/
 #define SIZE 3
 #define EMPTY 0    // 0b0000
 #define PLAYER1 1  // 0b0001
