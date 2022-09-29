@@ -2,7 +2,7 @@
 Jeu TicTacToe écrit en C++ pour le Labo 1 de PRG1
 ## Pseudo code vérification des cases   
 ### Entrées: 
-- `grid[][]`: grille de jeu représentée par un tableau à 2 dimensions
+- `grid[3][3]`: grille de jeu représentée par un tableau à 2 dimensions
 - `EMPTY = 0`: constante représentant la valeur d'une case vide dans le tableau `grid`
 - `PLAYER1 = 1`: constante représentant la valeur d'une case remplie par le joueur 1 dans le tableau `grid` 
 - `PLAYER2 = 2`: constante représentant la valeur d'une case remplie par le joueur 2 dans le tableau `grid`
