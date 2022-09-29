@@ -17,8 +17,8 @@ Enfin pour trouver la valeur `winner` on éxécute `checkline()` pour toutes les
 Si `winner` est égal à `EMPTY` alors il n'y a pas de gagnant sinon il sera `PLAYER1` ou `PLAYER2`
 ## Pseudo code jouabilité 2 joueurs
 ### Entrées: 
-`currentPlayer`: joueur actuel
-`playerInput`: saisie de l'utilisateur
+- `currentPlayer`: joueur actuel
+- `playerInput`: saisie de l'utilisateur
 
 ### Algorithme:
 - Boucle de jeu while qui attend la saisie de l'utilisateur 
