@@ -1,7 +1,8 @@
 /*
  *  HEIG-VD
- *  Projet TicTacToe - PRG1
- *  29.09.2022
+ *  Description: TicTacToe game - PRG1
+ *  Author(s): Ahmad & Bruno
+ *  Date: 29.09.2022
 */
 #define SIZE 3
 #define EMPTY 0    // 0b0000
