@@ -11,9 +11,9 @@ int main(int argc, char** argv)
 {
     const int grid[SIZE][SIZE] =
     {
-        { EMPTY, EMPTY, EMPTY },
-        { EMPTY, EMPTY, EMPTY },
-        { EMPTY, EMPTY, EMPTY },
+        { EMPTY, PLAYER1, EMPTY },
+        { EMPTY, PLAYER2, EMPTY },
+        { PLAYER1, EMPTY, EMPTY },
     };
 
     // Print grid
@@ -79,7 +79,18 @@ void printGrid(const int grid[][SIZE])
     {
         for (int x = 0; x < SIZE; x++)
         {
-            std::cout << getCellChar(grid[x][y]) << " ";
+            int i = (y * SIZE + x) + 1;
+            int cell = grid[x][y];
+
+            if (cell == EMPTY)
+            {
+                std::cout << i << " ";
+            }
+            else
+            {
+                std::cout << getCellChar(grid[x][y]) << " ";
+            }
+            
         }
         std::cout << std::endl;
     }
