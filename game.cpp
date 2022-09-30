@@ -43,6 +43,12 @@ void Game::start()
         int x = (inputInt - 1) % 3;
         int y = (inputInt - 1) / 3;
 
+        if (this->m_grid[x][y] != EMPTY)
+        {
+            std::cout << "You can't play on this cell!" << std::endl;
+            continue;
+        }
+        
         this->m_grid[x][y] = this->m_current_player;
 
         // Switch turn to the next player.
