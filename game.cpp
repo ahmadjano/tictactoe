@@ -14,10 +14,18 @@ void Game::start()
 {
     this->m_current_player = PLAYER1;
 
-    int winner;
+    int winner = EMPTY;
 
-    while (winner = getWinner() == EMPTY)
+    while (winner == EMPTY)
     {
+        winner = getWinner();
+
+        if (winner != EMPTY)
+        {
+            break;
+        }
+        
+
         // Print current player name.
         std::cout << "Current turn: " << getPlayerName(this->m_current_player) << std::endl;
 
@@ -26,6 +34,7 @@ void Game::start()
 
         // Prompt for input
         char input;
+
         std::cout << "Choose a cell (1-9) : ";
 
         std::cin >> input;
@@ -53,7 +62,10 @@ void Game::start()
 
         // Switch turn to the next player.
         this->m_current_player = (this->m_current_player % 2) + 1;
+        std::cout << "TEST1 " << winner << std::endl;
     }
+
+    std::cout << "TEST2 " << winner << std::endl;
 
     std::cout << getPlayerName(winner) << " won!" << std::endl;
     
