@@ -38,11 +38,13 @@ int getWinner(const int grid[][SIZE])
     int winner = EMPTY;
     int i = 0;
 
+    // Diagonal line checking.
+    int lineD = checkLine(grid, {0,0}, {1,1}, {2,2}) | checkLine(grid, {2,0}, {1,1}, {0,2});
+
     while (!winner && i < SIZE)
     {
         int lineV = checkLine(grid, {0,i}, {1,i}, {2,i});
         int lineH = checkLine(grid, {i,0}, {i,1}, {i,2});
-        int lineD = checkLine(grid, {0,0}, {1,1}, {2,2}) | checkLine(grid, {2,0}, {1,1}, {0,2});
 
         int potentialWinner = lineV | lineH | lineD;
 
