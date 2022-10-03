@@ -6,6 +6,7 @@ Game::Game()
 {
     this->m_current_player = 0;
     this->m_grid = new int*[SIZE];
+    
     for (int i = 0; i < SIZE; ++i)
         this->m_grid[i] = new int[SIZE];
 }
@@ -24,7 +25,6 @@ void Game::start()
         {
             break;
         }
-        
 
         // Print current player name.
         std::cout << "Current turn: " << getPlayerName(this->m_current_player) << std::endl;
@@ -62,10 +62,7 @@ void Game::start()
 
         // Switch turn to the next player.
         this->m_current_player = (this->m_current_player % 2) + 1;
-        std::cout << "TEST1 " << winner << std::endl;
     }
-
-    std::cout << "TEST2 " << winner << std::endl;
 
     std::cout << getPlayerName(winner) << " won!" << std::endl;
     
