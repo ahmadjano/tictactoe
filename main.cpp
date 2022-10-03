@@ -6,12 +6,13 @@
 */
 #include <iostream>
 #include "game.cpp"
+#include "tictactoe.cpp"
 
 int main(int argc, char** argv)
 {
-    Game game;
+    tictactoe tictactoe;
 
-    game.start();
+    tictactoe.prompt();
 
     return 0;   
 }
